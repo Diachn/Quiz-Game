@@ -13,39 +13,39 @@ let questions = [
 
     {
 
-        question: "What color are apples?",
+        question: "What is Guam considered?",
 
-        choiceA: "red",
+        choiceA: "US territory",
 
-        choiceB: "blue",
+        choiceB: "Their own State",
 
-        choiceC: "purple",
+        choiceC: "Their own Country",
 
         correct: "A"
 
     }, {
 
-        question: "What color are bananas?",
+        question: "What is the native language of Guam?",
 
-        choiceA: "pink",
+        choiceA: "Chuukese",
 
-        choiceB: "yellow",
+        choiceB: "Micronesian",
 
-        choiceC: "teal",
+        choiceC: "Chamorro",
 
-        correct: "B"
+        correct: "C"
 
     }, {
 
-        question: "What color are eggplants?",
+        question: "Where is Guam located?",
 
-        choiceA: "orange",
+        choiceA: "Eastern Pacific Ocean",
 
-        choiceB: "red",
+        choiceB: "Western Pacific Ocean",
 
-        choiceC: "purple",
+        choiceC: "Northern Atlantic Ocean",
 
-        correct: "C"
+        correct: "B"
 
     }
 
@@ -109,7 +109,7 @@ function renderCounter() {
             renderQuestion();
         } else {
             clearInterval(TIMER);
-            scoreRender();
+            
         }
     }
 
@@ -138,4 +138,5 @@ function answerIsWrong() {
 
 function myFunction() {
     document.getElementById("demo").innerHTML = ("You scored " + score + " out of " + questions.length);
+
 }
