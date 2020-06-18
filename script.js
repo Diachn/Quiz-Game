@@ -109,7 +109,7 @@ function renderCounter() {
             renderQuestion();
         } else {
             clearInterval(TIMER);
-            
+
         }
     }
 
@@ -127,7 +127,9 @@ function checkAnswer(answer) {
         renderQuestion();
     } else {
         clearInterval(TIMER);
+        alert("Quiz over. click the 'View Results' button to see your score!")
     }
+
 }
 function answerIsCorrect() {
     document.getElementById(runningQuestion).style.backgroundColor = "green";
