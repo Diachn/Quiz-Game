@@ -1,13 +1,13 @@
-const start = document.getElementById("start");
-const quiz = document.getElementById("quiz");
-const question = document.getElementById("question");
-const choiceA = document.getElementById("A");
-const choiceB = document.getElementById("B");
-const choiceC = document.getElementById("C");
-const counter = document.getElementById("counter");
-const timeGauge = document.getElementById("timeGauge");
-const progress = document.getElementById("progress");
-const scoreDiv = document.getElementById("score");
+var start = document.getElementById("start");
+var quiz = document.getElementById("quiz");
+var question = document.getElementById("question");
+var choiceA = document.getElementById("A");
+var choiceB = document.getElementById("B");
+var choiceC = document.getElementById("C");
+var counter = document.getElementById("counter");
+var timeGauge = document.getElementById("timeGauge");
+var progress = document.getElementById("progress");
+var scoreDiv = document.getElementById("scoreContainer");
 
 let questions = [
 
@@ -49,14 +49,14 @@ let questions = [
 
     }
 
-]; 
-const lastQuestion = questions.length - 1;
+];
+var lastQuestion = questions.length - 1;
 
 let runningQuestion = 0;
 let count = 0;
-const questionTime = 10;
-const gaugeWidth = 150;
-const gaugeUnit = gaugeWidth / questionTime;
+var questionTime = 5;
+var gaugeWidth = 150;
+var gaugeUnit = gaugeWidth / questionTime;
 let TIMER;
 let score = 0;
 
@@ -89,9 +89,9 @@ function startQuiz() {
 }
 function renderProgress() {
 
-    for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
+    for (let i = 0; i <= lastQuestion; i++) {
 
-        progress.innerHTML += "<div class='prog' id=" + qIndex + "></div>";
+        progress.innerHTML += "<div class='prog' id=" + i + "></div>";
 
     }
 }
@@ -104,41 +104,38 @@ function renderCounter() {
         count++
     } else {
         count = 0;
-        if (runningQuestion < lastQuestion){
+        if (runningQuestion < lastQuestion) {
             runningQuestion++;
             renderQuestion();
-        }else{
+        } else {
             clearInterval(TIMER);
             scoreRender();
         }
     }
 
 }
-function checkAnswer(answer){
-    if (answer == questions [runningQuestion]. correct){
-        score ++
+function checkAnswer(answer) {
+    if (answer == questions[runningQuestion].correct) {
+        score++
         answerIsCorrect();
-    }else {
+    } else {
         answerIsWrong();
     }
     count = 0;
-    if (runningQuestion < lastQuestion){
+    if (runningQuestion < lastQuestion) {
         runningQuestion++;
         renderQuestion();
-    }else{
+    } else {
         clearInterval(TIMER);
     }
 }
-function answerIsCorrect(){
+function answerIsCorrect() {
     document.getElementById(runningQuestion).style.backgroundColor = "green";
 }
-function answerIsWrong(){
+function answerIsWrong() {
     document.getElementById(runningQuestion).style.backgroundColor = "red";
 }
 
-function showScores() {
-    var gameOverHTML = "<h1>Result</h1>";
-    gameOverHTML += "<h2 id='score'> Your scores: " + quiz.score + "</h2>";
-    var element = document.getElementById("quiz");
-    element.innerHTML = gameOverHTML;
-};
+function myFunction() {
+    document.getElementById("demo").innerHTML = ("You scored " + score + " out of " + questions.length);
+}
